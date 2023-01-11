@@ -474,11 +474,18 @@ export default {
       this.$refs.navPopover.hide({ hideDelay: 0 });
       // Move to new `fromPage` if it's different from the current one
       if (opts.fromPage && !pageIsEqualToPage(opts.fromPage, this.firstPage)) {
+        let useCache;
+        if (this.step_ < this.count) {
+          useCache = false;
+        } else {
+          useCache = true;
+        }
         return this.refreshPages({
           ...opts,
           page: opts.fromPage,
           position: 1,
           force: true,
+          ignoreCache: !useCache,
         });
       }
       return Promise.resolve(true);

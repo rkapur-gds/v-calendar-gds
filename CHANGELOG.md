@@ -21,3 +21,9 @@
 ### Improvements
 
 * Allow separate `valid-hours` and `minute-increment` for range dates
+
+## 3.0.0-alpha.9
+
+### Bug Fixes
+
+** Set `ignoreCache` if `steps` are less than `count`
